@@ -1,0 +1,23 @@
+.header{
+		background-color:#007bff;
+		height:45px;
+		font-size:24px;
+		text-align:center;
+		font-weight:bold;
+		border-color:white;
+		border:white;          
+}
+
+
+.card{
+	text-align: center;
+	width: 30%;
+	height:420px; 
+	margin-left: 40%;
+	margin-bottom:10%;
+	color:black;  
+}
+
+.under{
+	margin-top:50px;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <script src="./css/jquery.min.js"></script>
+  <script src="./css/popper.min.js"></script>
+  <script src="./css/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-sm-6">
+ 
+ <div class="btn-group ">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+<div class="btn-group-vertical">
+  <a  class="btn btn-primary" href="#">Apple</a>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+<button type="button" class="btn btn-primary">
+  Messages <span class="badge badge-light">4</span>
+</button>
+  </div>
+  <div class="col-sm-6">
+    <table class="table table-striped table-bordered table-hover table-dark">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-success">
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+	<div id="accordion">
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-link" data-toggle="collapse" href="#collapseOne">
+        Collapsible Group Item #1
+      </a>
+    </div>
+    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+      <div class="card-body">
+        Lorem ipsum..
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+        Collapsible Group Item #2
+      </a>
+    </div>
+    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+      <div class="card-body">
+        Lorem ipsum..
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+        Collapsible Group Item #3
+      </a>
+    </div>
+    <div id="collapseThree" class="collapse" data-parent="#accordion">
+      <div class="card-body">
+        Lorem ipsum..
+      </div>
+    </div>
+  </div>
+
+</div>
+  </div>
+  </div>
+</div>
+
+</body>
+</html>

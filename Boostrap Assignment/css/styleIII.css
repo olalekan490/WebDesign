@@ -1,0 +1,33 @@
+.layer{
+	background-color:#007bff; 
+}
+
+.header{
+		background-color:#007bff;
+		height:45px;
+		font-size:24px;
+		text-align:center;
+		font-weight:bold;
+		border-color:white;
+		border-width:0.5px;
+		border-style:solid;            
+}
+
+.card{
+	width:15%;
+	height:600px; 
+	text-align:center;
+	border:10;
+	border-color:#007bff;   
+}
+
+.container{
+	background-color:white; 
+	width:85%;
+	height:600px; 
+	border:10;
+	border-color:#007bff;
+	float:right;
+	margin-top:-600px; 
+	border-radius:5px; 
+}

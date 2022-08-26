@@ -1,0 +1,84 @@
+1. import java.awt.EventQueue;
+2. import java.awt.event.*;
+3. import java.io.*;
+4. import javax.swing.*;
+5.
+6. /**
+7. * A program for viewing images.
+8. * @version 1.22 2007-05-21
+9. * @author Cay Horstmann
+10. */
+11. public class ImageViewer
+12. {
+13. public static void main(String[] args)
+14. {
+15. EventQueue.invokeLater(new Runnable()
+16. {
+17. public void run()
+18. {
+19. JFrame frame = new ImageViewerFrame();
+20. frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+21. frame.setVisible(true);
+22. }
+23. });
+24. }
+25. }
+26.
+27. /**
+28. * A frame with a label to show an image.
+29. */
+30. class ImageViewerFrame extends JFrame
+31. {
+32. public ImageViewerFrame()
+33. {
+34. setTitle("ImageViewer");
+35. setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+36.
+37. // use a label to display the images
+38. label = new JLabel();
+39. add(label);
+40.
+41. // set up the file chooser
+42. chooser = new JFileChooser();
+43. chooser.setCurrentDirectory(new File("."));
+44.
+45. // set up the menu bar
+46. JMenuBar menuBar = new JMenuBar();
+47. setJMenuBar(menuBar);
+48.
+49. JMenu menu = new JMenu("File");
+50. menuBar.add(menu);
+51.
+52. JMenuItem openItem = new JMenuItem("Open");
+53. menu.add(openItem);
+54. openItem.addActionListener(new ActionListener()
+55. {
+56. public void actionPerformed(ActionEvent event)
+57. {
+58. // show file chooser dialog
+59. int result = chooser.showOpenDialog(null);
+60.
+61. // if file selected, set it as icon of the label
+62. if (result == JFileChooser.APPROVE_OPTION)
+63. {
+64. String name = chooser.getSelectedFile().getPath();
+65. label.setIcon(new ImageIcon(name));
+66. }
+67. }
+68. });
+69. JMenuItem exitItem = new JMenuItem("Exit");
+70. menu.add(exitItem);
+71. exitItem.addActionListener(new ActionListener()
+72. {
+73. public void actionPerformed(ActionEvent event)
+74. {
+75. System.exit(0);
+76. }
+77. });
+78. }
+79.
+80. private JLabel label;
+81. private JFileChooser chooser;
+82. private static final int DEFAULT_WIDTH = 300;
+83. private static final int DEFAULT_HEIGHT = 400;
+84. }

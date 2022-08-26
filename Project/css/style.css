@@ -1,0 +1,78 @@
+.first{
+	background-color: white;
+	width:100%;
+}
+
+.second{
+		width:100%;
+		background-color:red;
+		font-size:38px;
+		text-align:center;
+		font-weight:bold;     
+}
+
+.logo{
+	padding-left:-15px;
+	padding-top:-5px;
+	margin-bottom:-8px;  
+
+}
+
+.third{
+		background-color:white;
+		width: 100%; 
+}
+
+.fourth{
+		text-align:center;
+		background-color:red;
+		width:100%;
+		font-weight:bold;
+		float:left;     
+}
+
+.fifth li{
+	text-align:center;
+	width:100%;
+	background-color:white;
+	font-weight:bold;
+	color:red;
+	text-decoration:blink;
+	display:inline;
+	margin-right:15px;
+	clear:both;
+	font-size:20px;        
+
+}
+
+.fifth{
+       margin-top:-20px;
+       margin-left:-35px;  
+}
+
+a{
+	color:red;
+	text-decoration-line:none;
+}
+
+
+.sixth{
+		background-color:white; 
+		width:55%; 
+		float:left;
+		font-size:16px;
+		margin-top:-25px;
+		text-align:justify;   
+}
+
+.well{
+	font-size:25px;
+	font-weight:bold-italic;
+	color:red;   
+}
+
+.seventh{
+	background-color:white;
+	width:45%; 
+	float:right; 
+}

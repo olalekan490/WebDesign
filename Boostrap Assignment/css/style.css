@@ -1,0 +1,28 @@
+.layer{
+	background-color:#007bff;
+}
+
+
+.header{
+		background-color:#007bff;
+		height:45px;
+		font-size:28px;
+		text-align:center;
+		font-weight:bold;
+		border-color:white;
+		border:white;          
+}
+
+.card{
+	text-align:center;
+	width:25%;
+	margin-left:38%;
+	border:1px;     
+}
+
+p{
+	text-align:center;
+	font-weight:bold;
+	font-size:18px;   
+}
+

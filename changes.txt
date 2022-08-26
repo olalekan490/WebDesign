@@ -1,0 +1,10 @@
+Billing(Reports, Invoice, Request Flow)
+Store(Items, Request, Report)
+Appointment(Reports, Check In)
+Facility(Wards, Room, items, Item Usage)
+Lab(Reports)
+Data
+NHIS(Reports,Referral Form, Change Reg, Registration)
+Backup Restore
+Patients(Registration, Add Issues,Allergies,Problems, 
+Immunization,Prescription, Medication)

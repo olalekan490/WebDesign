@@ -1,0 +1,662 @@
+HOME
+-------------------------------------------------------------------------------------------------------------------------------
+<div class="container-fluid layer">
+            <%@include file="sidebar.jsp"%>
+
+            <div class="content">
+                <div class="header">
+                    <h4><b><img alt="logo" src="<c:url value="/static/images/funaab.jfif"/>" width="50px" height="50px" align="centre"> | International Center For Professional Development | ICPD</b></h4>
+                    <div class="side">
+                        <span class="m-r-sm text-muted welcome-message">Welcome to ICPD |</span>
+                        <a href="<c:url value="/admin"/>"><span class="nav-label">Admin</span></a>
+                    </div>                                                       
+                </div>
+                <div class="well"><h2>${message} </h2></div>
+                <div class="footer">
+                    <strong style="color:#2f4050">Copyright© 2018</strong> | CosmosFC Limited
+                </div>
+            </div>
+        </div>
+---------------------------------------------------------------------------------------------------------------------------------
+Course
+---------------------------------------------------------------------------------------------------------------------------------
+ <div class="container-fluid layer">
+            <%@include file="nav.jsp"%>
+            <div class="content">
+                <%@include file="header.jsp"%>
+                
+                <div class="card firstcard">
+                    <div class="card-header pl-4">Course Profile</div>
+                   <c:if test="${not empty response}">
+                                    <div class="col-sm-12 col-lg-12">
+                                     <span class="alert alert-success">${response}</span> 
+                                </div>
+                                </c:if> 
+                   
+               
+            <form:form class="form-inline"  method="post" commandName="course" action="/infokeeper/course/add">
+                            
+                            <div class="row mt-3">
+                                
+                              
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label class="control-label">Title:</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <form:input type="name" class="form-control mb-2 mr-sm-4" id="title" path="title"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label class="control-label">Duration:</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <form:input type="name" class="form-control mb-2 mr-sm-4" id="duration" path="duration"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label class="control-label mr-sm-4" for="usernamer">Cost:</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <form:input type="cost" class="form-control mb-2 mr-sm-4" id="number" path="cost"/>
+                                            
+                                        </div>
+                                    </div>  
+                                </div>
+                                            <div class="col-sm-1">
+                                                <button type="submit" class="float-left">SAVE</button>
+                                            </div>
+                            </div>    
+
+                        </form:form>
+                    
+                </div><br>
+
+                <table class="table table-striped table-bordered table-hover table-dark table-flush">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Duration</th>
+                            <th>Cost(NGN)</th>
+                            <th>Date Created</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <c:forEach items="${courselist}" var="result">
+                        <tr class="table-light">
+                            <td>${result.title}</td>
+                            <td>${result.duration}</td>
+                            <td>${result.cost}</td>
+                            <td>${result.lastmodify}</td>
+                            <td>
+                           
+                                <a href="<c:url value='/course/edit/${result.id}' />" class="btn btn-primary">Edit</a>
+                                <a href="<c:url value='/course/delete/${result.id}' />" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <strong style="color:#2f4050">Copyright©2019</strong> | CosmosFC Limited
+            </div>
+        </div>
+    </div>
+---------------------------------------------------------------------------------------------------------------------------------
+Admin
+---------------------------------------------------------------------------------------------------------------------------------
+<body style="overflow-x:hidden !important; overflow-y:hidden !important;">
+        <div class="container-fluid layer">
+            <%@include file="nav.jsp"%>
+
+            <div class="content">
+                <%@include file="header.jsp"%>
+
+                <div class="well"><h2>Welcome Admin</h2></div>
+
+                <div class="card firstcard">
+                    <div class="card-header">Admin Profile
+
+                        <c:if test="${not empty response}">
+                            <div class="col-sm-12 col-lg-12">
+                                <span class="alert alert-success">${response}</span> 
+                            </div>
+                        </c:if> 
+                    </div>
+                    <div class="card-body">
+                        <form:form class="form-inline"  method="post" commandName="admin" action="/infokeeper/admin/add">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label mr-sm-4" for="formGroupExampleInput2">Surname:</label>
+                                            <label class="control-label mr-sm-4" for="formGroupExampleInput2">Firstname:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <form:input type="text" class="form-control  mb-2 mr-sm-4" path="surname"/>
+                                            <form:input type="text" class="form-control  mb-2 mr-sm-5" path="firstname"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label mr-sm-4" for="usernamer">Username:</label>
+                                            <label class="control-label mr-sm-4" for="pwd">Password:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <form:input type="name" class="form-control  mb-2 mr-sm-2" path="username"/>
+                                            <form:input type="password" class="form-control  mb-2 mr-sm-2" path="password"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label mr-sm-4" for="number">Phone:</label>
+                                            <label class="control-label mr-sm-4" for="email">Email:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <form:input type="phonenumber" class="form-control  mb-2 mr-sm-2" path="contactphone"/>
+                                            <form:input type="email" class="form-control  mb-2 mr-sm-2" path="email"/>
+                                            <button type="submit" class="float-right">SAVE</button>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>     
+
+                        </form:form>
+                    </div>
+                </div>
+                <div class="footer">
+                    <strong style="color:#2f4050">Copyright© 2019</strong> | CosmosFC Limited
+                </div>
+            </div>
+        </div>
+    </body>
+------------------------------------------------------------------------------------------------------------------------------------
+Course Registration
+-------------------------------------------------------------------------------------------------------------------------------------
+<%@include file="nav.jsp"%>
+            <div class="content">
+                <%@include file="header.jsp"%>
+
+                <div class="card firstcard">
+                    <div class="card-header">Course Registration
+                        <c:if test="${not empty response}">
+                            <div class="col-sm-12 col-lg-12">
+                                <span class="alert alert-success">${response}</span> 
+                            </div>
+                        </c:if> 
+                    </div>
+                    <div class="card-body">
+                        <form:form class="form-inline"  method="post" commandName="courseregistration" action="/infokeeper/courseregistration/add">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label class="control-label" for="formGroupExampleInput2">Course:</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <form:select class="form-control" id="input" path="courseId" multiple="true">
+                                                <c:forEach items="${courseList}" var="cr">
+                                                     <option value="${cr.id}">${cr.title}</option>
+                                                </c:forEach>
+                                               
+                                            </form:select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label class="control-label mr-sm-4" for="formGroupExampleInput2">Participant:</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <form:select class="form-control" id="input" path="participantId" multiple="false">
+                                                <c:forEach items="${partList}" var="cr">
+                                                     <option value="${cr.id}">${cr.name}</option>
+                                                </c:forEach>
+                                               
+                                            </form:select>
+                                            <button type="submit" class="float-right">SAVE</button>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div> 
+
+                        </form:form>
+                    </div>
+                </div><br>
+
+                <table class="table table-striped table-bordered table-hover ml-2 table-dark">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Participant</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${courseregistrationlist}" var="result">
+                            <tr class="table-light">
+                                <td>${result.course}</td>
+                                <td>${result.participantname}</td>
+                                <td>
+                                    <a href="<c:url value='/courseregistration/edit/${result.id}' />" class="btn btn-primary">Edit</a>
+                                    <a href="<c:url value='/courseregistration/delete/${result.id}' />" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <strong style="color:#2f4050">Copyright© 2019</strong> | CosmosFC Limited
+            </div>
+        </div>
+    </div>
+-----------------------------------------------------------------------------------------------------------------------------
+Payment
+------------------------------------------------------------------------------------------------------------------------------
+<body style="overflow-x:hidden !important;">
+        <div class="container-fluid layer">
+            <%@include file="nav.jsp"%>
+
+            <div class="content">
+                <%@include file="header.jsp"%>
+
+
+                <div class="card firstcard">
+                    <div class="card-header">Payment Profile
+                        <c:if test="${not empty response}">
+                            <div class="col-sm-12 col-lg-12">
+                                <span class="alert alert-success">${response}</span> 
+                            </div>
+                        </c:if> 
+                    </div>
+                    <div class="card-body">
+                        <form:form class="form-inline"  method="post" commandName="payment" action="/infokeeper/payment/add">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label" for="usernamer">Amountpaid:</label>
+                                            <label class="control-label" for="formGroupExampleInput2">Course:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <form:input type="name" class="form-control mb-2 mr-sm-4" id="amountpaid" path="amountpaid"/>
+                                            <form:select class="form-control" id="input" path="courseId">
+                                                <c:forEach items="${courseList}" var="pa">
+                                                    <form:option value="${pa.courseId}">${pa.courseId.title}</form:option>
+                                                </c:forEach>
+                                            </form:select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label" for="pwd">Datepaid:</label>
+                                            <label class="control-label" for="number">Paidby:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <form:input type="date" class="form-control mb-2 mr-sm-4" id="datepaid" path="datepaid"/>
+                                            <form:input type="text" class="form-control mb-2 mr-sm-4" id="paidbyid" path="paidbyId"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label" for="payment">Paymentmode:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <form:select class="form-control" id="input" path="paymentmode">
+                                                <option>Bank Transfer</option>
+                                                <option>Cash Deposit</option>
+                                                <option>Internet Banking</option>
+                                            </form:select>
+                                                <form:button type="submit" class="float-right">SAVE</form:button>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div> 
+                        </form:form>
+                    </div>
+                </div><br>
+
+
+                <table class="table table-striped table-bordered table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Duration</th>
+                            <th>Cost(NGN)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${paymentlist}" var="result">
+                            <tr class="table-light">
+                                <td>${result.courseId.title}</td>
+                                <td>${result.courseId.duration}</td>
+                                <td>${result.courseId.cost}</td>
+                                <td>
+                                    <a href="<c:url value='/payment/edit/${result.id}' />" class="btn btn-primary">Edit</a>
+                                    <a href="<c:url value='/payment/delete/${result.id}' />" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer">
+                <strong style="color:#2f4050">Copyright© 2019</strong> | CosmosFC Limited
+            </div>
+        </div>
+    </div>
+</body>
+----------------------------------------------------------------------------------------------------------------------
+Participant
+----------------------------------------------------------------------------------------------------------------------
+<body style="overflow-x:hidden !important;">
+        <div class="container-fluid layer">
+            <%@include file="nav.jsp"%>
+
+            <div class="content">
+                <%@include file="header.jsp"%>
+
+                <div class="card firstcard">
+                    <div class="card-header">Participant Profile
+                        <c:if test="${not empty response}">
+                            <div class="col-sm-12 col-lg-12">
+                                <span class="alert alert-success">${response}</span> 
+                            </div>
+                        </c:if> 
+                    </div>
+                    <div class="card-body">
+                        <form:form class="form-inline"  method="post" commandName="participant" action="/infokeeper/participant/add">     
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label class="control-label">Name:</label>
+                                            <label class="control-label">Phone:</label>
+                                            <label class="control-label">Email:</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <form:input type="text" class="form-control mb-2 mr-sm-4" id="formGroupExampleInput2" path="name"/>
+                                            <form:input type="phonenumber" class="form-control mb-2 mr-sm-4" id="number" path="contactphone"/>
+                                            <form:input type="text" class="form-control mb-2 mr-sm-4" id="email" path="email"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label class="control-label" for="address">Address:</label>
+                                            <label class="control-label mr-sm-4" for="usernamer">Gender:</label>
+                                            <label class="control-label mr-sm-4" for="usernamer">Username</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <form:input type="name" class="form-control mb-2 mr-sm-4" id="adress" path="address"/>
+                                            <form:input type="name" class="form-control mb-2 mr-sm-4" id="gender" path="gender"/>
+                                            <form:input type="name" class="form-control mb-2 mr-sm-4" id="username" path="username"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label class="control-label mr-sm-4" for="pswd">Password</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <form:input type="password" class="form-control mb-2 mr-sm-4" id="pswd" path="password"/>
+                                            <button type="submit" class="float-right">SAVE</button>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>     
+                        </form:form>
+                    </div>
+                </div><br>
+
+                <table class="table table-striped table-bordered table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Gender</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${participantlist}" var="result">
+                            <tr class="table-light">
+                                <td>${result.name}</td>
+                                <td>${result.contactphone}</td>
+                                <td>${result.email}</td>
+                                <td>${result.address}</td>
+                                <td>${result.gender}</td>
+                                <td>${result.username}</td>
+                                <td>${result.password}</td>
+                                <td>
+                                    <a href="<c:url value='/participant/edit/${result.id}' />" class="btn btn-primary">Edit</a>
+                                    <a href="<c:url value='/participant/delete/${result.id}' />" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <strong style="color:#2f4050">Copyright© 2019</strong> | CosmosFC Limited
+            </div>
+        </div>
+    </div>
+</body>
+--------------------------------------------------------------------------------------------------------------------------
+Timetable
+--------------------------------------------------------------------------------------------------------------------------
+<body style="overflow-x:hidden !important;">
+        <div class="container-fluid layer">
+            <%@include file="nav.jsp"%>
+            <div class="content">
+                <%@include file="header.jsp"%>
+
+                <div class="card firstcard">
+                    <div class="card-header">Timetable Profile
+                        <c:if test="${not empty response}">
+                            <div class="col-sm-12 col-lg-12">
+                                <span class="alert alert-success">${response}</span> 
+                            </div>
+                        </c:if> 
+                    </div>
+                    <div class="card-body">
+                        <form:form class="form-inline" method="post" commandName="timetable" action="/infokeeper/timetable/add">      
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label mr-sm-4" for="formGroupExampleInput2">Course:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="input">
+                                                <option>Java</option>
+                                                <option>Web Design</option>
+                                                <option>Cisco</option>
+                                                <option>Andriod App</option>
+                                                <option>Blog/Wordpress</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label mr-sm-4" for="formGroupExampleInput2">Duration:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <form:input type="text" class="form-control mb-2 mr-sm-4" id="formGroupExampleInput2" path="duration"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label mr-sm-4" for="formGroupExampleInput2">Tutor:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="input">
+                                                <option>Mr.Jide</option>
+                                                <option>Mr.Kazeem</option>
+                                                <option>Mr.Ayelabola</option>
+                                                <option>New Tutor</option>
+                                            </select>
+                                            <button type="submit" class="float-right">SAVE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form:form>
+                    </div>
+                </div><br>
+
+                <table class="table table-striped table-bordered table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Duration</th>
+                            <th>Tutor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${timetablelist}" var="result">
+                            <tr class="table-light">
+                                <td>${result.courseId.title}</td>
+                                <td>${result.duration}</td>
+                                <td>${result.tutorialId.name}</td>
+                                <td>
+                        <a href="<c:url value='/timetable/edit/${result.id}' />" class="btn btn-primary">Edit</a>
+                        <a href="<c:url value='/timetable/delete/${result.id}' />" class="btn btn-danger">Delete</a>
+                        </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <strong style="color:#2f4050">Copyright© 2019</strong> | CosmosFC Limited
+            </div>
+        </div>
+    </div>
+</body>
+--------------------------------------------------------------------------------------------------------------------------
+Blog
+--------------------------------------------------------------------------------------------------------------------------
+<body style="overflow-x:hidden !important;">
+        <div class="container-fluid layer">
+                    <%@include file="nav.jsp"%>
+            <div class="content">
+                  <%@include file="header.jsp"%>
+                <div class="well"><h2>Ask Your Question</h2> 
+                    <button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target=".submit">Add Question</button>
+                    <div class="modal fade submit" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <form:form class="form-inline" method="post" commandName="blog">
+                                                <label class="sr-only" for="inlineFormInputGroupUsername2">Course</label>
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <form:input type="number" class="form-control" id="inlineFormInputGroupUsername2" path="courseId"/>
+                                                </div>
+
+                                                <label class="sr-only" for="inlineFormInputGroupUsername2">Participant</label>
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <form:input type="number" class="form-control" id="inlineFormInputGroupUsername2"  path="topic"/>
+                                                </div>
+
+                                                <label class="sr-only" for="inlineFormInputGroupUsername2">Topic</label>
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <form:input type="text" class="form-control" id="inlineFormInputGroupUsername2" path="topic"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="comment">Question:</label>
+                                                    <form:textarea class="form-control" rows="5" id="comment" path="description"/>
+                                                    
+                                                </div> 
+                                            </form:form>
+                                        </div>
+                                    </div><br>
+                                    <a href="Home.html"><button type="button" class="btn btn-secondary">Submit</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card firstcard">
+                    <div class="card-body">  
+                        <form:form method="post" commandName="blog">
+                            <div class="form-group">
+                                <form:textarea class="form-control textarea" rows="5" id="comment" path="description"/>
+                                <div class="media image custom-file"> 
+                                    <form:input type="file" class="custom-file-input" id="customFile" path="description"/>
+                                    <img alt="image" class="rounded-circle image d-flex align-self-end" src="<c:url value="/static/images/profile.jpg" />" width="40" height="40"> 
+                                </div>
+                            </div> 
+
+                            <div class="form-group">
+                                <form:textarea class="form-control textarea" rows="5" id="comment" path="description"/>
+                                <div class="media image custom-file">
+                                    <form:input type="file" class="custom-file-input" id="customFile" path="description"/> 
+                                    <img alt="image" class="rounded-circle image d-flex align-self-end" src="images/profile.jpg"  width="40" height="40"></input> 
+                                </div>
+                            </div> 
+
+                        </form:form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">
+                <strong style="color:#2f4050">Copyright© 2019</strong> | CosmosFC Limited
+            </div>
+        </div>
+    </div>
+</body>
+----------------------------------------------------------------------------------------------------------------------------------
+</div>

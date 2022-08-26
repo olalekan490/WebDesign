@@ -1,0 +1,27 @@
+.header{
+		background-color:white;
+		height:45px;
+		font-size:24px;
+		text-align:center;
+		font-weight:bold;
+		border-color:white;
+		border:white;          
+}
+
+
+.card{
+	text-align: center;
+	width: 80%;
+	height:300px; 
+	margin-left: 10%;
+	margin-bottom:20%;
+	color:black; 
+}
+
+.card-body{
+			background-color:green;  
+}
+
+.under{
+	margin-top:80px;
+}
